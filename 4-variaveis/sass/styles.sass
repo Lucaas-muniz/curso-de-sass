@@ -1,0 +1,27 @@
+@import 'variables'
+
+h1
+    color: $text-color
+    border: $border
+p
+    color: $text-color
+    border: $border
+    margin: #{$mx + 10px}
+    padding: #{$px + $py}
+
+a
+    color: $text-color
+    font-size: $main-font
+
+div
+    p
+        $text-color-local: #fff
+        $font2-color: purple
+        $border: 3px dotted green
+        background-color: $bg-color
+        color: $text-color-local
+        border: $border
+        span
+            color: $font2-color
+h2
+    color: $h2-color

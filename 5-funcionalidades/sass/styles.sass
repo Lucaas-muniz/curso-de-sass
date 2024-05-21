@@ -1,0 +1,93 @@
+@charset "UTF-8"
+    
+@import '_variables'
+@import 'button'
+@import 'mixins'
+@import 'plugins'
+@import 'functions'
+
+// @error 'Este software não está funcionando'
+
+body
+    background-color: lightblue
+
+.p-s
+    @include special
+    
+h2
+    @include special
+    @include green
+
+
+.esp-menor
+    @include espacamento(10px,10px)
+    @extend %font-pattern
+    border: custom-border-function(3)
+
+.esp-medio
+    @include espacamento(20px,20px)
+    @include customBorder(dotted, gray, 4px)
+    @extend %font-pattern
+
+    
+
+.esp-maior
+    @include espacamento(30px,30px)
+    border: custom-border-function(2)
+
+.esp-maior-ainda
+    $pad: 50px
+    $mag: 50px
+    @include espacamento($pad,$mag)
+    @include customBorder(double, red, 4px)
+    
+p
+    @include colors
+
+div
+    p
+        @include colors($background: #444, $font: yellow)
+
+$medida:10
+
+.container-menor
+    width: 100px * 2
+.container-maior
+    width: 100px + ($medida + 4)
+
+.fonte-pequena
+    font-size: 5px
+    color: text-color(5)
+
+.fonte-grande
+    font-size: 25px
+    color: text-color(25)
+
+.teste-1
+    border: custom-border-function(3)
+    width: custom-width()
+.teste-2
+    border: custom-border-function(3)
+    width: custom-width($width: 500px)
+    
+.teste-3
+    border: custom-border-function(3)
+    width: custom-width($division:1)
+    background-color: calc-func(5,5)
+
+$fonts: 40px, 60px, 100px
+
+@each $font in $fonts
+    .title-#{$font}
+        font-size: $font
+        line-height: $font * 1.2
+
+@for $i from 1 through 3
+    .p-#{$i}
+        @if $i == 1
+            color: lightblue
+        @else if $i == 2
+            color: lightgreen
+        @else if $i == 3
+            color: teal
+        background-color: #000
